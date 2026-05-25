@@ -97,9 +97,13 @@ def main():
     print(f"Server pornit pe portul {PORT}")
     
     while True:
-        conn, addr = server.accept()
-        # bagam fiecare client pe un thread separat ca sa mearga in paralel
-        threading.Thread(target=handle_client, args=(conn,)).start()
+        try:
+            conn, addr = server.accept()
+            threading.Thread(target=handle_client, args=(conn,)).start() # bagam fiecare client pe un thread separat ca sa mearga in paralel
+        except RuntimeError:
+            conn.close()
+        except Exception:
+            pass
 
 if __name__ == "__main__":
     main()
