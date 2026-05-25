@@ -26,12 +26,6 @@ Once the client script is running, simply type the domain name you want to resol
 
 ## Run Instructions
 
-### 0. Create the base dns file
-Create `server_db_8719.txt` in the project directory and add your hostnames
-```bash
-pc1.principal.ro=192.168.1.10
-```
-
 ### 1. Start the Server (Docker/Podman)
 Open your terminal in the project directory where the `Dockerfile` and `server.py` are located.
 
@@ -52,7 +46,7 @@ Open a second terminal window. This acts as the `secondary DNS zone` for forward
 
 **Run the  script**
 ```bash
-python3 server.py 8720
+python3 server.py 8799
 ```
 *You will be prompted to enter a unique username to join the server.*
 
