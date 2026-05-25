@@ -87,7 +87,7 @@ def main():
     if not os.path.exists(DB_FILE):
         if PORT == 8719:
             save_db({"pc1.principal.ro": "192.168.1.10"})
-        elif PORT == 8720:
+        elif PORT == 8799:
             save_db({"pc1.secundar.ro": "10.0.0.5"})
 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
