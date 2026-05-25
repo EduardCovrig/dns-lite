@@ -11,7 +11,7 @@ DB_FILE = f'server_db_{PORT}.txt'
 
 # aici setam serverul secundar cu care comunicam
 FORWARDING = {
-    "secundar.ro": ("sys.ase.ro", 8720)
+    "secundar.ro": ("sys.ase.ro", 8799)
 }
 
 # ne asigura ca nu pica serverul daca scriu 2 clienti in acelasi fisier deodata
