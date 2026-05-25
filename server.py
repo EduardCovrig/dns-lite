@@ -6,7 +6,7 @@ import os
 
 # luam portul din terminal daca il dam, altfel ramanem pe 8719 by default
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8719
-HOST = '0.0.0.0' #accepta orice conexiune
+HOST = '0.0.0.0' # accepta orice conexiune
 DB_FILE = f'server_db_{PORT}.txt'
 
 # aici setam serverul secundar cu care comunicam
@@ -83,12 +83,20 @@ def handle_client(conn):
         conn.close()
 
 def main():
-    # generam niste date de test automat in functie de ce port are serverul
+    # generam baza de date automat cu cate 3 domenii direct din cod
     if not os.path.exists(DB_FILE):
         if PORT == 8719:
-            save_db({"pc1.principal.ro": "192.168.1.10"})
+            save_db({
+                "pc1.principal.ro": "192.168.1.10",
+                "pc2.principal.ro": "192.168.1.11",
+                "pc3.principal.ro": "192.168.1.12"
+            })
         elif PORT == 8799:
-            save_db({"pc1.secundar.ro": "10.0.0.5"})
+            save_db({
+                "pc1.secundar.ro": "10.0.0.5",
+                "pc2.secundar.ro": "10.0.0.6",
+                "pc3.secundar.ro": "10.0.0.7"
+            })
 
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
