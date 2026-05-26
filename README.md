@@ -28,6 +28,11 @@ Once the client script is running, simply type the domain name you want to resol
 
 ### 1. Start the Server (Docker/Podman)
 Open your terminal in the project directory where the `Dockerfile` and `server.py` are located.
+```bash
+docker compose up --build
+```
+
+**OR**
 
 **Build the image:**
 ```bash
